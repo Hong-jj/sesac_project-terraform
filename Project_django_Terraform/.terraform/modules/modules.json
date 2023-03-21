@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"copy-ami","Source":"registry.terraform.io/ifunky/copy-ami/aws","Version":"1.0.0","Dir":".terraform/modules/copy-ami"}]}
