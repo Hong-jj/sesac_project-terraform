@@ -22,7 +22,7 @@
 
         stage('Deploy'){  
         Install Terraform
-            sh wget https://releases.hashicorp.com/terraform/1.1.0/terraform_1.1.0_linux_amd64.zip
+            sh wget https://releases.hashicorp.com/terraform/1.4.2/terraform_1.4.2_linux_amd64.zip
             sh unzip terraform_1.1.0_linux_amd64.zip
             sh sudo mv terraform /usr/bin/
             sh terraform version
