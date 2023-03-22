@@ -33,10 +33,10 @@
 //      }
 
             steps {
-                sh "../terraform_test/"
+             dir ('/var/jenkins_home/workspace/tmp'){
                 sh "terraform init"
                 sh "terraform plan"
-             
+             }
             }
         }
         stage('Approval') {
