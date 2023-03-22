@@ -4,8 +4,8 @@
     
   environment {
         GIT_URL = "https://github.com/Hong-jj/sesac_project-terraform.git"
-        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
-        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY') 
+        AWS_ACCESS_KEY_ID     = credentials('AWS_Access_ID_Key')
+        AWS_SECRET_ACCESS_KEY = credentials('AWS_Secret_ID_Key') 
     }
 
     parameters {
