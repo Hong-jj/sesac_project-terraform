@@ -1,6 +1,9 @@
  pipeline {
      
   agent any
+  tools {
+        terraform 'terraform'
+    }
     
   environment {
         GIT_URL = "https://github.com/Hong-jj/sesac_project-terraform.git"
@@ -34,7 +37,7 @@
 //      }
 
             steps {
-                sh "cd Project_django_Terraform "
+                dir("Project_django_Terraform")
                 sh "terraform init"
                 sh "terraform plan"
             }
