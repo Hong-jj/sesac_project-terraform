@@ -1,19 +1,32 @@
-pipeline {
-    agent any
+ pipeline {
+     agent any
+
+    environment {
+        GIT_URL = "https://github.com/Hong-jj/sesac_project-terraform.git"
+        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY') 
+    }
 
     parameters {
         string(name: 'environment', defaultValue: 'terraform', description: 'Workspace/environment file to use for deployment')
         booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
     }
 
-     environment {
-        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
-        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-        //REGION = credentials('AWS_REGION')
+     stages {
         
-    }
+        stage('Pull') {
+            steps {
+                git url: "${GIT_URL}", branch: "main", poll: true, changelog: true
+            }
+        }
 
-    stages {
+        stage('Deploy'){  
+        Install Terraform
+            sh wget https://releases.hashicorp.com/terraform/1.1.0/terraform_1.1.0_linux_amd64.zip
+            sh unzip terraform_1.1.0_linux_amd64.zip
+            sh sudo mv terraform /usr/bin/
+            sh terraform version
+        }
 
         stage('Plan') {
 
@@ -25,6 +38,7 @@ pipeline {
         }
         stage('Approval') {
            when {
+
                not {
                    equals expected: true, actual: params.autoApprove
                }
@@ -38,11 +52,14 @@ pipeline {
                }
            }
        }
-
         stage('Apply') {
             steps {
                 sh "terraform apply --auto-approve"
             }
         }
-    }
-}
+     }
+ }
+
+
+
+
