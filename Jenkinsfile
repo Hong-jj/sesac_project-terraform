@@ -33,10 +33,10 @@
 //      }
 
             steps {
-             dir ('terraform_test'){
+                sh "../terraform_test/"
                 sh "terraform init"
                 sh "terraform plan"
-             }
+             
             }
         }
         stage('Approval') {
