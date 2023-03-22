@@ -29,11 +29,12 @@
         }
 
         stage('Plan') {
-         options { 
-      checkoutToSubdirectory('Project_django_Terraform') 
-     }
+//          options { 
+//       checkoutToSubdirectory('Project_django_Terraform') 
+//      }
 
             steps {
+                sh "cd Project_django_Terraform "
                 sh "terraform init"
                 sh "terraform plan"
             }
