@@ -29,7 +29,7 @@
 
         stage('init') {
             steps {
-               sh 'cd /var/lib/jenkins/workspace/Terraform-Test'
+               sh 'cd /../Terraform-Test'
                sh 'terraform init'
             }
         }
