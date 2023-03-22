@@ -1,6 +1,6 @@
  pipeline {
      agent any
-
+     options { checkoutToSubdirectory('foo') }
     environment {
         GIT_URL = "https://github.com/Hong-jj/sesac_project-terraform.git"
         AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
