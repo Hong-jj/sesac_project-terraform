@@ -1,10 +1,6 @@
  pipeline {
      
   agent any
-     
-  options { 
-      checkoutToSubdirectory('Project_django_Terraform') 
-     }
     
   environment {
         GIT_URL = "https://github.com/Hong-jj/sesac_project-terraform.git"
@@ -33,6 +29,9 @@
         }
 
         stage('Plan') {
+         options { 
+      checkoutToSubdirectory('Project_django_Terraform') 
+     }
 
             steps {
                 sh "terraform init"
