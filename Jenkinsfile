@@ -30,8 +30,6 @@
         stage('Plan') {
 
             steps {
-                sh 'terraform init -upgrade'
-                sh "terraform validate"
                 sh "terraform plan"
             }
         }
