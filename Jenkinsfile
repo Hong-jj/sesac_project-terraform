@@ -1,10 +1,6 @@
- pipeline {
-     
+ pipeline {   
   agent any
-  tools {
-        terraform "Terraform"
-    }
-    
+
   environment {
         GIT_URL = "https://github.com/Hong-jj/sesac_project-terraform.git"
         AWS_ACCESS_KEY_ID     = credentials('AWS_Access_ID_Key')
