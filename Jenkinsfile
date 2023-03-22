@@ -33,7 +33,7 @@
 //      }
 
             steps {
-                cd '/var/jenkins_home/workspace/Terraform-Test'
+                sh 'cd /var/jenkins_home/workspace/Terraform-Test'
                 sh "terraform init"
                 sh "terraform plan"
              
