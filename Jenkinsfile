@@ -29,9 +29,10 @@
 
         stage('init') {
             steps {
-               dir("Terraform-Test") { 
-                    sh 'terraform init'
-               }
+               sh '''
+                 cd ../Terraform-Test
+                 terraform init
+                  '''
             }
         }
       
