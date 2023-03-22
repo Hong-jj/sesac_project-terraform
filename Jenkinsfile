@@ -27,13 +27,8 @@
            }
         }
 
-        stage('Plan') {
-//          options { 
-//       checkoutToSubdirectory('Project_django_Terraform') 
-//      }
-
+        stage('init && plan') {
             steps {
-                sh 'cd /var/jenkins_home/workspace/Terraform-Test'
                 sh "terraform init"
                 sh "terraform plan"
              
