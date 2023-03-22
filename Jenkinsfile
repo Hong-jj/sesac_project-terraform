@@ -33,7 +33,7 @@
 //      }
 
             steps {
-                dir("Project_django_Terraform")
+                sh "Project_django_Terraform"
                 sh "terraform init"
                 sh "terraform plan"
             }
