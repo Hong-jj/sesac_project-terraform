@@ -29,7 +29,7 @@
 
         stage('init') {
             steps {
-               dir("Terraform-Test/Project_") { 
+               dir("Terraform-Test/Project_django_Terraform") { 
                     sh 'terraform init'
                }
             }
