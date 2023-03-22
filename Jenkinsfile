@@ -1,7 +1,12 @@
  pipeline {
-     agent any
-     options { checkoutToSubdirectory('Project_django_Terraform') }
-    environment {
+     
+  agent any
+     
+  options { 
+      checkoutToSubdirectory('Project_django_Terraform') 
+     }
+    
+  environment {
         GIT_URL = "https://github.com/Hong-jj/sesac_project-terraform.git"
         AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY') 
