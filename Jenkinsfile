@@ -27,13 +27,21 @@
            }
         }
 
-        stage('init && plan') {
+        stage('init') {
             steps {
-                sh "terraform init"
+               dir("Terraform-Test/Project_") { 
+                    sh 'terraform init'
+               }
+            }
+        }
+      
+              stage('plan') {
+            steps {
                 sh "terraform plan"
              
             }
         }
+      
         stage('Approval') {
            when {
 
