@@ -33,10 +33,10 @@
 //      }
 
             steps {
-             dir ('/var/jenkins_home/workspace/Terraform-Test'){
+                cd '/var/jenkins_home/workspace/Terraform-Test'
                 sh "terraform init"
                 sh "terraform plan"
-             }
+             
             }
         }
         stage('Approval') {
