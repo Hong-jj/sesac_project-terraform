@@ -2,7 +2,6 @@
   agent any
 
   environment {
-        GIT_URL = "https://github.com/Hong-jj/sesac_project-terraform.git"
         AWS_ACCESS_KEY_ID     = credentials('AWS_Access_ID_Key')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_Secret_ID_Key') 
     }
@@ -16,7 +15,7 @@
         
         stage('Pull') {
             steps {
-                git url: "${GIT_URL}", branch: "main", poll: true, changelog: true
+                git url: "https://github.com/Hong-jj/sesac_project-terraform.git", branch: "main", poll: true, changelog: true
             }
         }
 
