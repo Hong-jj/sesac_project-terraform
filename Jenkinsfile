@@ -14,7 +14,7 @@
         
         stage('Pull') {
             steps {
-                git url: "https://github.com/Hong-jj/sesac_project-terraform.git/Project_django_Terraform", branch: "main", poll: true, changelog: true
+                git url: "https://github.com/Hong-jj/sesac_project-terraform.git/", branch: "main", poll: true, changelog: true
             }
         }
 
