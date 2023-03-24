@@ -15,9 +15,10 @@
         }
         stage('init') {
             steps {
-//              dir ("Project_django_Terraform")
-             
+             dir ("Project_django_Terraform"){
+               sh 'ls -l'
                sh 'terraform init'
+             }
             }
         }
       
@@ -50,4 +51,3 @@
             }
         }
      }
- }
