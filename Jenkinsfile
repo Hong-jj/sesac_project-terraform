@@ -2,7 +2,7 @@
   agent any
 
   environment {
-       AWS_CREDENTIALS= credentials('AWS Credentials')
+       AWS_CREDENTIALS= 'AWS Credentials'
     }
 
     parameters {
