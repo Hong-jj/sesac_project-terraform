@@ -55,7 +55,9 @@
        }
         stage('Apply') {
             steps {
+             dir ('Project_django_Terraform'){
                 sh "terraform apply --auto-approve"
+             }
             }
         }
      }
