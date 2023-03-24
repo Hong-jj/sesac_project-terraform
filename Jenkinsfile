@@ -1,9 +1,9 @@
  pipeline {   
   agent any
 
-  environment {
+//   environment {
 //        AWS_CREDENTIALS= 'AWS Credentials'
-    }
+//     }
 
     parameters {
         
