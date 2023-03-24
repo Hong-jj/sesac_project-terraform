@@ -36,10 +36,7 @@ variable "master_password"{
   default = "ditn669305"
 }
 
-variable "aws_credentials" {
-  type        = string
-  description = "AWS credentials"
-}
+
 
 
 # Tokyo 인증서
