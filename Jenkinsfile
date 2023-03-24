@@ -9,15 +9,6 @@
         
         booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
     }
-
-     stages {
-        
-        stage('Pull') {
-            steps {
-                git url: "https://github.com/Hong-jj/sesac_project-terraform.git/", branch: "main", poll: true, changelog: true
-            }
-        }
-
         stage('Deploy'){  
         
          steps {
@@ -27,7 +18,10 @@
 
         stage('init') {
             steps {
+             dir ("Project_django_Terraform "){
+               sh 'ls -l'
                sh 'terraform init'
+             }
             }
         }
       
