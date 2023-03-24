@@ -2,7 +2,7 @@
   agent any
 
   environment {
-       AWS_CREDENTIALS= 'AWS Credentials'
+       AWS_CREDENTIALS = 'AWS Credentials'
     }
 
     parameters {
@@ -55,7 +55,7 @@
        }
         stage('Apply') {
             steps {
-             dir ('Project_django_Terraform'){
+             withAWS(credentials: 'AWS_CREDENTIALS', region: 'ap-northeast-1'),dir ('Project_django_Terraform'){
                 sh "terraform apply --auto-approve"
              }
             }
