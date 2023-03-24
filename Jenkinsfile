@@ -2,7 +2,9 @@
   agent any
 
   environment {
-       AWS_CREDENTIALS= "AWS Credentials"
+        TF_VAR_aws_access_key = credentials('AWS_ACCESS_KEY_ID')
+        TF_VAR_aws_secret_key = credentials('AWS_ACCESS_KEY_ID')
+
     }
 
     parameters {
@@ -11,12 +13,6 @@
     }
 
      stages {
-        
-        stage('Pull') {
-            steps {
-                git url: "https://github.com/Hong-jj/sesac_project-terraform.git/Project_django_Terraform", branch: "main", poll: true, changelog: true
-            }
-        }
 
         stage('Deploy'){  
         
@@ -27,14 +23,19 @@
 
         stage('init') {
             steps {
+             dir ('Project_django_Terraform'){
+               sh 'pwd'
+               sh 'ls -l'
                sh 'terraform init'
+             }
             }
         }
       
               stage('plan') {
             steps {
+             dir ('Project_django_Terraform'){
                 sh "terraform plan"
-             
+             }
             }
         }
       
@@ -56,7 +57,11 @@
        }
         stage('Apply') {
             steps {
+//              withAWS(credentials: 'AWS_Credentials', region: 'ap-northeast-1'){
+              dir('Project_django_Terraform'){
                 sh "terraform apply --auto-approve"
+              }
+//              }
             }
         }
      }

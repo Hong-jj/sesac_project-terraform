@@ -43,3 +43,16 @@ variable "master_password"{
 # }
 
 
+#Jenkins에서 변수로 받아온 Key
+variable "AWS_ACCESS_KEY_ID" {
+  type        = string
+  description = "AWS access key"
+}
+variable"AWS_SECRET_ACCESS_KEY"{
+  type      = string
+  description = "AWS secret key"
+}
+
+
+
+

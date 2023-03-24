@@ -1,1 +1,0 @@
-# Requester`s credentials.
