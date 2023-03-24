@@ -36,6 +36,9 @@ variable "master_password"{
   default = "ditn669305"
 }
 
+
+
+
 # Tokyo 인증서
 # variable "ap-northeast-1_acm"{
 #   description = "Tokyo ACM arn"
