@@ -31,7 +31,9 @@
       
               stage('plan') {
             steps {
+             dir ('Project_django_Terraform'){
                 sh "terraform plan"
+             }
             }
         }
       
