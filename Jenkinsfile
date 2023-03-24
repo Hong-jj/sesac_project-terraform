@@ -2,9 +2,8 @@
   agent any
 
   environment {
-
         TF_VAR_aws_access_key = credentials('AWS_ACCESS_KEY_ID')
-        TF_VAR_aws_secret_key = credentials('AWS_SECRET_KEY')
+        TF_VAR_aws_secret_key = credentials('AWS_SECRET_ACCESS_KEY')
     }
 
     parameters {
