@@ -4,6 +4,7 @@
   environment {
         TF_VAR_aws_access_key = credentials('aws_access_key_id')
         TF_VAR_aws_secret_key = credentials('aws_secret_access_key')
+
     }
 
     parameters {
