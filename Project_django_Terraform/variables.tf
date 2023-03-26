@@ -36,10 +36,26 @@ variable "master_password"{
   default = "ditn669305"
 }
 
+
+
+
 # Tokyo 인증서
 # variable "ap-northeast-1_acm"{
 #   description = "Tokyo ACM arn"
 #   default = "arn:aws:acm:ap-northeast-1:417574981094:certificate/135fc005-95e9-4f87-a18e-ecb05bc4f624"
 # }
+
+
+#Jenkins에서 변수로 받아온 Key
+variable "aws_access_key" {
+  type        = string
+  description = "AWS access key"
+}
+variable"aws_secret_access_key"{
+  type      = string
+  description = "AWS secret key"
+}
+
+
 
 

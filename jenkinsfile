@@ -1,41 +1,43 @@
- pipeline {
-     agent any
+ pipeline {   
+  agent any
 
-    environment {
-        GIT_URL = "https://github.com/Hong-jj/sesac_project-terraform.git"
-        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
-        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY') 
+  environment {
+        TF_VAR_aws_access_key = credentials('aws_access_key_id')
+        TF_VAR_aws_secret_key = credentials('aws_secret_access_key')
     }
 
     parameters {
-        string(name: 'environment', defaultValue: 'terraform', description: 'Workspace/environment file to use for deployment')
+        
         booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
     }
 
      stages {
-        
-        stage('Pull') {
-            steps {
-                git url: "${GIT_URL}", branch: "main", poll: true, changelog: true
-            }
-        }
 
         stage('Deploy'){  
-        Install Terraform
-            sh wget https://releases.hashicorp.com/terraform/1.1.0/terraform_1.1.0_linux_amd64.zip
-            sh unzip terraform_1.1.0_linux_amd64.zip
-            sh sudo mv terraform /usr/bin/
-            sh terraform version
+        
+         steps {
+            sh "terraform version"
+           }
         }
 
-        stage('Plan') {
-
+        stage('init') {
             steps {
-                sh 'terraform init -upgrade'
-                sh "terraform validate"
-                sh "terraform plan"
+             dir ('Project_django_Terraform'){
+               sh 'pwd'
+               sh 'ls -l'
+               sh 'terraform init'
+             }
             }
         }
+      
+              stage('plan') {
+            steps {
+             dir ('Project_django_Terraform'){
+                sh "terraform plan"
+             }
+            }
+        }
+      
         stage('Approval') {
            when {
 
@@ -54,12 +56,12 @@
        }
         stage('Apply') {
             steps {
+//              withAWS(credentials: 'AWS_Credentials', region: 'ap-northeast-1'){
+              dir('Project_django_Terraform'){
                 sh "terraform apply --auto-approve"
+              }
+//              }
             }
         }
      }
  }
-
-
-
-
