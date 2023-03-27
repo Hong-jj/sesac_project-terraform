@@ -2,7 +2,7 @@ provider "aws" {
     #shared_credentials_files = ["C:/Users/USER/.aws/credentials"]
         access_key = var.aws_access_key
         secret_key = var.aws_secret_key
-        Region  = var.aws_region
+        region  = var.aws_region
 }
 
 #Jenkins에서 변수로 받아온 Key
