@@ -18,6 +18,7 @@
         
          steps {
             sh "terraform version"
+            sh "env"
            }
         }
 
